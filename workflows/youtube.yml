@@ -1,0 +1,20 @@
+name: Twitch
+on:
+  twitch:
+    url: UCcX_ZJD8rx58tn71oGAKAAA
+jobs:
+  discord:
+    name: Discord
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make a HTTP Request
+        uses: actionsflow/axios@v1
+        with:
+          url: https://hookb.in/VGPzxoWbdjtE22bwznzE
+          method: POST
+          body: |
+            {
+              "link":"${{ on.rss.outputs.link }}",
+              "title": "${{ on.rss.outputs.title }}",
+              "content":"<<<${{ on.rss.outputs.contentSnippet }}>>>"
+            }
